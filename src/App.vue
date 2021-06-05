@@ -1,7 +1,6 @@
 <template>
     <div class="app-container">
-      
-      <Home />
+      <router-view />
     </div>
   
 </template>
@@ -9,9 +8,10 @@
 <script>
 
 import Home from './views/Home.vue'
+import CreateTask from './views/CreateTask.vue'
 
 export default {
-  components: { Home }
+  components: { Home, CreateTask }
 }
 </script>
 

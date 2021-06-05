@@ -3,7 +3,9 @@
     <div class="social-task-main-container" v-if="socialTasks.length">
       <div v-for="socialTask in socialTasks" :key="socialTask.id">
         <SocialTask :socialTask="socialTask" @removeTask="removeTask" @completeTask="completeTask"/>
+        
       </div>
+      <button class="new-task-button">Add New Task</button>
     </div>
   </div>
 </template>
@@ -58,6 +60,18 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.new-task-button {
+  border: none;
+  background: rgb(200, 235, 177);
+  padding: 10px 50px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.new-task-button:active {
+  transform: scale(0.98);
 }
 
 </style>
