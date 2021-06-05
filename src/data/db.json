@@ -1,0 +1,28 @@
+{
+  "socialTasks": [
+    {
+      "id": 1,
+      "socialIcon": "Twitter",
+      "socialNetwork": "Twitter",
+      "taskTitle": "Original Tweet",
+      "details": "Make a post about web development",
+      "complete": false
+    },
+    {
+      "id": 2,
+      "socialIcon": "Instagram",
+      "socialNetwork": "Instagram",
+      "taskTitle": "Post a photo on Instagram",
+      "details": "Make a post about learning Vue.",
+      "complete": false
+    },
+    {
+      "id": 3,
+      "socialIcon": "Twitter",
+      "socialNetwork": "Twitter",
+      "taskTitle": "Networking",
+      "details": "Reach out to a potential client",
+      "complete": false
+    }
+  ]
+}

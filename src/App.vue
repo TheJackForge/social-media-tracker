@@ -1,30 +1,37 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+    <div class="app-container">
+      
+      <Home />
+    </div>
+  
 </template>
 
+<script>
+
+import Home from './views/Home.vue'
+
+export default {
+  components: { Home }
+}
+</script>
+
 <style>
+
+body {
+  background: rgb(250, 255, 247)
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 </style>
