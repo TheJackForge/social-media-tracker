@@ -1,6 +1,8 @@
 <template>
 <div class="create-new-task-main-container">
-    <h2>Add New Social Media Task</h2>
+    
+    <div class="create-new-task-form-container">
+            <h2>Add New Social Media Task</h2>
   <form @submit.prevent="submitForm" class="create-new-task-form">
       <label>Title</label>
       <input type="text" required v-model="title" >
@@ -11,6 +13,8 @@
   <div class="create-new-task-button-container">
       <button>Go Back</button> <button>Add Task</button></div>
 </div>
+    </div>
+
 
 </template>
 
@@ -39,16 +43,28 @@ label {
 
 input {
     border: 1px solid rgba(128, 128, 128, 0.76);
+    padding: 5px 0;
 }
 
 textarea {
     border: 1px solid rgba(128, 128, 128, 0.76);
     height: 100px;
+    resize: none;
+}
+
+.create-new-task-form-container {
+    background: rgb(243, 243, 243);
+    border-radius: 8px;
+    padding: 20px 40px 50px 40px;
 }
 
 .create-new-task-form {
     display: flex;
     flex-direction: column;
+}
+
+.create-new-task-main-container h2{
+    text-align: center;
 }
 
 .create-new-task-main-container {
@@ -57,6 +73,7 @@ textarea {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 100px;
 }
 
 .create-new-task-button-container {
