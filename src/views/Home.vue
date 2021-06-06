@@ -5,7 +5,9 @@
         <SocialTask :socialTask="socialTask" @removeTask="removeTask" @completeTask="completeTask"/>
         
       </div>
-      <button class="new-task-button">Add New Task</button>
+      <router-link to="/create">
+        <button class="new-task-button">Add New Task</button>
+      </router-link>
     </div>
   </div>
 </template>

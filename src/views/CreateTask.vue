@@ -2,18 +2,23 @@
 <div class="create-new-task-main-container">
     
     <div class="create-new-task-form-container">
-            <h2>Add New Social Media Task</h2>
-  <form @submit.prevent="submitForm" class="create-new-task-form">
-      <label>Title</label>
-      <input type="text" required v-model="title" >
-      <label>Details</label>
-      <textarea required v-model="details"></textarea>
-  </form>
-  <p>{{this.title}} {{ this.details }} </p>
-  <div class="create-new-task-button-container">
-      <button>Go Back</button> <button>Add Task</button></div>
-</div>
+        <h2>Add New Social Media Task</h2>
+        <form @submit.prevent="submitForm" class="create-new-task-form">
+        <label>Title</label>
+        <input type="text" required v-model="title" >
+        <label>Social Network</label>
+        <input type="text" required v-model="socialNetwork">
+        <label>Details</label>
+        <textarea required v-model="details"></textarea>
+                <div class="create-new-task-button-container">
+            <router-link to="/"><button>Go Back</button></router-link> 
+            <button>Add Task</button>
+        </div>
+        </form>
+        <p>{{this.title}} {{ this.details }} </p>
+
     </div>
+</div>
 
 
 </template>
@@ -23,12 +28,30 @@ export default {
     data() {
         return {
             title: '',
-            details: ''
+            details: '',
+            socialNetwork: '',
+            endPoint: 'http://localhost:3000/socialTasks/'
         }
     },
     methods: {
         submitForm() {
-            console.log(this.title, this.details)
+
+            let task = {
+                taskTitle: this.title,
+                details: this.details,
+                socialNetwork: this.socialNetwork,
+                socialIcon: this.socialNetwork,
+                complete: false
+            }
+            console.log(task)
+            fetch(this.endPoint, { 
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json'},
+                body: JSON.stringify(task)
+                })
+            .then(() =>{
+                this.$router.push('/')
+            }).catch((err) => console.log(err))
         }
     }
 
@@ -78,6 +101,7 @@ textarea {
 
 .create-new-task-button-container {
     display: flex;
+    margin-top: 20px;
 }
 
 .create-new-task-button-container button {

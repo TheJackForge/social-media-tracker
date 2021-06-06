@@ -39,13 +39,11 @@ export default {
             this.showDetail = !this.showDetail
         },
         deleteTask() {
-            console.log('DELETE TASK')
             fetch(this.endPoint, { method: 'DELETE' })
             .then(() => this.$emit( 'removeTask', this.socialTask.id ))
             .catch((err) => console.log(err.message))
         },
         completeTask() {
-            console.log('COMPLETE TASK')
             fetch(this.endPoint, { method: 'PATCH' ,
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({complete: !this.socialTask.complete})

@@ -6,7 +6,7 @@
       "socialNetwork": "Twitter",
       "taskTitle": "Original Tweet",
       "details": "Make a post about web development",
-      "complete": false
+      "complete": true
     },
     {
       "id": 2,
@@ -17,12 +17,27 @@
       "complete": false
     },
     {
-      "id": 3,
-      "socialIcon": "Twitter",
-      "socialNetwork": "Twitter",
-      "taskTitle": "Networking",
-      "details": "Reach out to a potential client",
-      "complete": false
+      "taskTitle": "Post a meme",
+      "details": "Post a meme of a dog and a cat.",
+      "socialNetwork": "Instagram",
+      "complete": false,
+      "id": 5
+    },
+    {
+      "taskTitle": "Post an inspirational quote",
+      "details": "When you're going through hell, just keep going.",
+      "socialNetwork": "Facebook",
+      "socialIcon": "Facebook",
+      "complete": false,
+      "id": 6
+    },
+    {
+      "taskTitle": "Post your playlist to Insta",
+      "details": "MGK\nBlackbear",
+      "socialNetwork": "Instagram",
+      "socialIcon": "Instagram",
+      "complete": true,
+      "id": 7
     }
   ]
 }
