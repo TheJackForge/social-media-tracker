@@ -3,7 +3,7 @@
     
     <div class="create-new-task-form-container">
         <h2>Add New Social Media Task</h2>
-        <form @submit.prevent="submitForm" class="create-new-task-form">
+        <form @submit.prevent="editTask" class="create-new-task-form">
         <label>Title</label>
         <input type="text" required v-model="title" >
         <label>Social Network</label>
@@ -12,7 +12,7 @@
         <textarea required v-model="details"></textarea>
                 <div class="create-new-task-button-container">
             <router-link to="/"><button>Go Back</button></router-link> 
-            <button>Add Task</button>
+            <button>Edit Task</button>
         </div>
         </form>
     </div>
@@ -24,36 +24,43 @@
 <script>
 export default {
     name: 'CreateTask',
+    props: ['id'],
     data() {
         return {
             title: '',
             details: '',
             socialNetwork: '',
-            endPoint: 'http://localhost:3000/socialTasks/'
+            endPoint: 'http://localhost:3000/socialTasks/' + this.id
         }
     },
+    mounted() {
+        fetch(this.endPoint)
+        .then( res => res.json() )
+        .then( data => {
+            this.title = data.taskTitle
+            this.details = data.details
+            this.socialNetwork = data.socialNetwork
+            })
+    },
     methods: {
-        submitForm() {
-
-            let task = {
-                taskTitle: this.title,
+        editTask() {
+        fetch(this.endPoint, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                title: this.title,
                 details: this.details,
-                socialNetwork: this.socialNetwork,
-                socialIcon: this.socialNetwork,
-                complete: false
-            }
-            console.log(task)
-            fetch(this.endPoint, { 
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json'},
-                body: JSON.stringify(task)
-                })
-            .then(() =>{
-                this.$router.push('/')
-            }).catch((err) => console.log(err))
+                socialNetwork: this.socialNetwork
+            }),
+            headers: { 'Content-Type': 'application/json' }
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .then ( () => {
+            this.$router.push('/')
+        }).catch((err) => console.log(err))
         }
+        
     }
-
 }
 </script>
 

@@ -1,7 +1,8 @@
 <template>
   <div class="home-main-container">
     <div class="social-task-main-container" v-if="socialTasks.length">
-      <div v-for="socialTask in socialTasks" :key="socialTask.id">
+      <FilterNav @filterChange="current = $event" :current="current" />
+      <div v-for="socialTask in filteredSocialTasks" :key="socialTask.id">
         <SocialTask :socialTask="socialTask" @removeTask="removeTask" @completeTask="completeTask"/>
         
       </div>
@@ -16,14 +17,16 @@
 // @ is an alias to /src
 
 import SocialTask from '../components/SocialTask.vue'
+import FilterNav from '../components/FilterNav.vue'
 
 export default {
   name: 'Home',
-  components: { SocialTask },
+  components: { SocialTask, FilterNav },
   data() {
     return {
       socialTasks: [],
-      endPoint: 'http://localhost:3000/socialTasks/'
+      endPoint: 'http://localhost:3000/socialTasks/',
+      current: 'all'
     }
   },
   mounted() {
@@ -45,6 +48,18 @@ export default {
       })
       t.complete = !t.complete
     }
+  },
+    computed: {
+      filteredSocialTasks() {
+          if (this.current === 'completed') {
+              return this.socialTasks.filter( ( task ) => task.complete)
+              console.log(this.current)
+          }
+          if (this.current === 'ongoing' ) {
+              return this.socialTasks.filter( ( task ) => !task.complete)
+          }
+          return this.socialTasks
+      }
   }
 }
 </script>

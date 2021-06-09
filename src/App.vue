@@ -1,4 +1,5 @@
 <template>
+    <NavBar />
     <div class="app-container">
       <router-view />
     </div>
@@ -7,11 +8,12 @@
 
 <script>
 
+import NavBar from './components/NavBar.vue'
 import Home from './views/Home.vue'
 import CreateTask from './views/CreateTask.vue'
 
 export default {
-  components: { Home, CreateTask }
+  components: { Home, CreateTask, NavBar }
 }
 </script>
 

@@ -13,8 +13,9 @@
       "socialIcon": "Instagram",
       "socialNetwork": "Instagram",
       "taskTitle": "Post a photo on Instagram",
-      "details": "Make a post about learning Vue.",
-      "complete": false
+      "details": "Make a post about learning a new algorithm.",
+      "complete": false,
+      "title": "Post a photo on Instagram"
     },
     {
       "taskTitle": "Post a meme",
@@ -24,20 +25,12 @@
       "id": 5
     },
     {
-      "taskTitle": "Post an inspirational quote",
-      "details": "When you're going through hell, just keep going.",
-      "socialNetwork": "Facebook",
-      "socialIcon": "Facebook",
-      "complete": false,
-      "id": 6
-    },
-    {
-      "taskTitle": "Post your playlist to Insta",
-      "details": "MGK\nBlackbear",
-      "socialNetwork": "Instagram",
-      "socialIcon": "Instagram",
+      "taskTitle": "DM someone on Twitter",
+      "details": "DM Sallykatcodes",
+      "socialNetwork": "Twitter",
+      "socialIcon": "Twitter",
       "complete": true,
-      "id": 7
+      "id": 6
     }
   ]
 }

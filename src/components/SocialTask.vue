@@ -6,9 +6,11 @@
             <button class="details-button" @click="showDetails" ><span v-if="this.showDetail">HIDE</span><span v-if="!this.showDetail">SHOW</span></button>
             </div>
             <div class="action-icons">
-                <div class="icon-container"><span class="material-icons">
-edit
-</span></div>
+                <div class="icon-container">
+                    <router-link :to="{ name: 'EditTask', params: { id: socialTask.id }}">
+                        <span class="material-icons edit-icon">edit</span>
+                    </router-link>
+                    </div>
                 <div class="icon-container" @click="deleteTask"><span class="material-icons">
 delete
 </span></div>
@@ -102,6 +104,10 @@ export default {
 
 .task-title-icon-container.complete .mark-complete {
     color: rgb(94, 255, 0);
+}
+
+.edit-icon {
+    color: #2c3e50;
 }
 
 </style>
